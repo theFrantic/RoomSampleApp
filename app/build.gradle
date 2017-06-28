@@ -25,15 +25,27 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "com.android.support:appcompat-v7:$rootProject.versions.support_lib"
+    compile "com.android.support:cardview-v7:$rootProject.versions.support_lib"
+    compile "com.android.support:recyclerview-v7:$rootProject.versions.support_lib"
+    compile "com.android.support.constraint:constraint-layout:1.0.2"
+
+    // Room Persistance Library
+    compile "android.arch.persistence.room:runtime:$rootProject.versions.arch_comp"
+    kapt "android.arch.persistence.room:compiler:$rootProject.versions.arch_comp"
+
+    // Dagger
+    compile "com.google.dagger:dagger:$rootProject.versions.dagger"
+    compile "com.google.dagger:dagger-android:$rootProject.versions.dagger"
+    compile "com.google.dagger:dagger-android-support:$rootProject.versions.dagger"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.versions.dagger"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.versions.dagger"
+
+    testCompile 'junit:junit:4.12'
+
     androidTestImplementation ('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:25.4.0'
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-
-    // Room Persistance Library
-    compile "android.arch.persistence.room:runtime:$room_version"
-    kapt "android.arch.persistence.room:compiler:$room_version"
 }

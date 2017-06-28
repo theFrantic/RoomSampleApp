@@ -14,7 +14,7 @@ import com.whilchy.roomsampleapp.data.entities.Task
     @Query("select * from task")
     fun getAllTasks(): List<Task>
 
-    @Query("select * from task where id = :p0")         // TODO: Change :p0 for :id on new versions of Room Library
+    @Query("select * from task where id = :arg0")         // TODO: Change :p0 for :id on new versions of Room Library
     fun findTaskById(id: Long): Task
 
     @Insert(onConflict = REPLACE)
