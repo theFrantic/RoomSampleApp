@@ -1,7 +1,8 @@
-package com.whilchy.roomsampleapp
+package com.whilchy.roomsampleapp.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.whilchy.roomsampleapp.R
 
 class ToDoActivity : AppCompatActivity() {
 
