@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.whilchy.roomsampleapp"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -24,17 +23,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile "com.android.support:appcompat-v7:$rootProject.versions.support_lib"
     compile "com.android.support:cardview-v7:$rootProject.versions.support_lib"
     compile "com.android.support:recyclerview-v7:$rootProject.versions.support_lib"
     compile "com.android.support.constraint:constraint-layout:1.0.2"
-
-    // Room Persistance Library
-    compile "android.arch.persistence.room:runtime:$rootProject.versions.arch_comp"
-    kapt "android.arch.persistence.room:compiler:$rootProject.versions.arch_comp"
 
     // Dagger
     compile "com.google.dagger:dagger:$rootProject.versions.dagger"
@@ -43,13 +36,18 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$rootProject.versions.dagger"
     kapt "com.google.dagger:dagger-compiler:$rootProject.versions.dagger"
 
-    // RxJava2 (attention to version of each one that are different)
-    compile "io.reactivex.rxjava2:rxjava:$rootProject.versions.rxjava"
-    compile "io.reactivex.rxjava2:rxandroid:$rootProject.versions.rxjava_android"
+    // RxJava2
+    compile "io.reactivex.rxjava2:rxjava:2.1.0"
+    compile "io.reactivex.rxjava2:rxandroid:2.0.1"
+
+    // Room
+    compile "android.arch.persistence.room:runtime:$rootProject.versions.arch_comp"
+    compile "android.arch.persistence.room:rxjava2:$rootProject.versions.arch_comp"
+    kapt "android.arch.persistence.room:compiler:$rootProject.versions.arch_comp"
 
     testCompile 'junit:junit:4.12'
 
-    androidTestImplementation ('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 }

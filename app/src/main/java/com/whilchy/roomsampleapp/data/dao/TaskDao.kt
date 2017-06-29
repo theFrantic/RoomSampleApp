@@ -3,6 +3,7 @@ package com.whilchy.roomsampleapp.data.dao
 import android.arch.persistence.room.*
 import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import com.whilchy.roomsampleapp.data.entities.Task
+import io.reactivex.Flowable
 
 /**
  * Dao Interface using Room. With this interface Room (at compile time) will generate the actual
@@ -12,9 +13,9 @@ import com.whilchy.roomsampleapp.data.entities.Task
 @Dao interface TaskDao {
 
     @Query("select * from task")
-    fun getAllTasks(): List<Task>
+    fun getAllTasks(): Flowable<List<Task>>
 
-    @Query("select * from task where id = :arg0")         // TODO: Change :p0 for :id on new versions of Room Library
+    @Query("select * from task where id = :p0")
     fun findTaskById(id: Long): Task
 
     @Insert(onConflict = REPLACE)
