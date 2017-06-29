@@ -30,8 +30,10 @@ task clean(type: Delete) {
 
 ext {
     versions = [
-            support_lib: '25.3.1',
-            dagger     : '2.11',
-            arch_comp  : '1.0.0-alpha3'
+            support_lib     : '25.3.1',
+            dagger          : '2.11',
+            arch_comp       : '1.0.0-alpha3',
+            rxjava          : '2.1.0',
+            rxjava_android  : '2.0.1'
     ]
 }

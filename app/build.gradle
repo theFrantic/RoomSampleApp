@@ -43,6 +43,10 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$rootProject.versions.dagger"
     kapt "com.google.dagger:dagger-compiler:$rootProject.versions.dagger"
 
+    // RxJava2 (attention to version of each one that are different)
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.versions.rxjava"
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.versions.rxjava_android"
+
     testCompile 'junit:junit:4.12'
 
     androidTestImplementation ('com.android.support.test.espresso:espresso-core:2.2.2', {
